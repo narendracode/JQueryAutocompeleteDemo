@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<script type = "text/javascript" src="js/jQuery.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <style type="text/css">
+    .ui-autocomplete {
+      max-height: 100px;
+      overflow-y: auto;
+      /* prevent horizontal scrollbar */
+      overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+     * we use height instead, but this forces the menu to always be this tall
+     */
+    * html .ui-autocomplete {
+      height: 100px;
+    }
+	</style>
+<script type="text/javascript">
+$(document).ready(function(){	
+    var availableTags = [{id:"1" ,label:"VActionScript"},
+         {id:"2", label:"VAppleScript"},
+         {id:"3",label:"VAsp"},
+         {id:"4",label:"vB"},
+         {id:"5",label:"C"},
+         {id:"6",label:"C++"},
+         {id:"7",label:"Clojure"},
+         {id:"8",label:"COBOL"},
+         {id:"9",label: "ColdFusion"},
+         {id:"10",label:"Erlang"},
+         {id:"11",label:"Fortran"},
+         {id:"12",label:"Groovy"},
+         {id:"13",label:"Haskell"},
+         {id:"14",label:"Java"},
+         {id:"15",label:"JavaScript"},
+         {id:"16",label:"Lisp"},
+         {id:"17",label:"Perl"},
+         {id:"18",label:"PHP"},
+         {id:"19",label:"Python"},
+         {id:"20",label:"Ruby"},
+         {id:"21",label:"Scala"},
+         {id:"22",label:"Scheme"}
+       ];
+	
+	   $( "#tags" ).autocomplete({
+	         source: availableTags,
+			 select: function( event, ui ) {
+			//alert(ui.item.id);	
+			$('#stationaryId').text(ui.item.id);
+			 }
+	       });
+		   
+	$('#selectAutocompelte').click(function(){
+			alert("the id is : "+$('#stationaryId').text());
+	});
+	
+});//ready
+
+
+</script>
+</head>
+<body>
+	<input type="submit" id="selectAutocompelte" value="show choice">
+	<div class="ui-widget">
+	  <label for="tags">Tags: </label>
+	  <input id="tags" />
+	</div> 
+        <input type="hidden" id="stationaryId">	
+    	
+</body>
